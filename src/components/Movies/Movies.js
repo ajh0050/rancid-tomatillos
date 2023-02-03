@@ -11,6 +11,7 @@ const Movies = ({movies}) => {
           rating={movie.average_rating}
           id={movie.id}
           releaseDate={movie.release_date}
+          image={movie.poster_path}
         />
       )
     })

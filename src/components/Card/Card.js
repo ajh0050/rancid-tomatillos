@@ -1,13 +1,16 @@
 import React from 'react'
 import './Card.css'
 
-const Card = ({title, rating, id, releaseDate}) => {
-    console.log('rating',rating)
+const Card = ({rating, id, releaseDate, image}) => {
     return (
         <div className='card'>
-            <h3>{title}</h3>
-            <p>Rating: {parseFloat(rating.toFixed(2))}</p>
-            <p>Release Date: {releaseDate}</p>
+            <img src={image} alt="Movie Poster" className='poster-image'></img>
+            <div className="card-footer">
+                <div className='info-container'>
+                    <p className='card-date'>{releaseDate}</p>
+                    <p className='card-rating'>{parseFloat(rating.toFixed(2))}/10</p>
+                </div>
+            </div>
         </div>
     )
 }
