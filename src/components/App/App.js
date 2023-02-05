@@ -11,7 +11,6 @@ class App extends Component {
       movies: [],
       movie: "",
     }
-    this.selectMovie = this.selectMovie.bind(this)
   }
   componentDidMount() {
     this.setState({ movies: movieData.movies })
@@ -23,16 +22,16 @@ class App extends Component {
     this.setState({movie: selectedMovie})
   }
 
+  returnHome = () => {
+    this.setState({movie:""})
+  }
+
   render() {
     return (
       <div className="App">
-        {this.state.movie ? 
-        (<MovieDetails movie={this.state.movie}/>) 
-        : 
-        ( <Movies 
-        movies={this.state.movies} 
-        selectMovie={this.selectMovie}
-        />)}
+        {
+        this.state.movie ? (<MovieDetails movie={this.state.movie} returnHome={this.returnHome}/>) : ( <Movies movies={this.state.movies} selectMovie={this.selectMovie}/>)
+        }
        
       </div>
     )
