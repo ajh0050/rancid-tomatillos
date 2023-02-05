@@ -1,9 +1,9 @@
 import './App.css';
-import movieData from '../../assets/movieData'
 import React, {Component} from "react"
 import Movies from '../Movies/Movies'
 import MovieDetails from '../MovieDetails/MovieDetails'
-import { fetchMovies, fetchIndividual, fetchMovie } from "../../apiCalls";
+import { fetchMovies, fetchMovie } from "../../apiCalls";
+import Header from '../Header/Header'
 
 class App extends Component {
   constructor() {
@@ -43,6 +43,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Header />
         {
         this.state.movie ? (<MovieDetails movie={this.state.movie} returnHome={this.returnHome}/>) : ( <Movies movies={this.state.movies} selectMovie={this.selectMovie}/>)
         }
