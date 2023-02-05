@@ -1,0 +1,71 @@
+.movie-details-container {
+    display:flex;
+    flex-direction: column;
+    width:100%;
+    height: 100%;
+    background-color: gray;
+    /* box-sizing: border-box; */
+}
+
+.main-info {
+    display:flex;
+}
+
+.image-section {
+    width: 50%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-image {
+    /* box-sizing: border-box; */
+    width:90%;
+    height: auto;
+    margin:20px;
+    margin-bottom: 5px;
+}
+
+.tagline {
+    margin:0;
+    margin-left: 20px;
+    font-size: 1.3rem;
+}
+
+.main-details {
+    display:flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.title-section {
+    display:flex;
+    justify-content: space-between;
+    margin:0
+}
+
+.movie-title {
+    font-size: 2rem;
+}
+
+.home-button {
+    appearance: none;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    cursor: pointer;
+    padding:5px;
+    height: 40px;
+    margin: 5px;
+}
+
+.overview {
+    font-size: 1.5rem;
+    margin-right: 15%;
+    margin-top: 0;
+    line-height: 1.8;
+}
+
+.extra-details {
+    margin-left: 20px;
+}
+
