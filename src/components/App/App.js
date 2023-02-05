@@ -41,15 +41,19 @@ class App extends Component {
   }
 
   render() {
-    return (
-      <div className="App">
-        <Header />
-        {
-        this.state.movie ? (<MovieDetails movie={this.state.movie} returnHome={this.returnHome}/>) : ( <Movies movies={this.state.movies} selectMovie={this.selectMovie}/>)
-        }
-       
-      </div>
-    )
+    if (!this.state.error) {
+      return (
+        <div className="App">
+          <Header />
+  
+          {this.state.movie ? (<MovieDetails movie={this.state.movie} returnHome={this.returnHome}/>) : ( <Movies movies={this.state.movies} selectMovie={this.selectMovie}/>)}
+        </div>
+      )
+    } else {
+      return (
+        <div>Sorry please come back again later</div>
+      )
+    }
   }
 }
 
