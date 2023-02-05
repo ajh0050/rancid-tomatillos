@@ -1,10 +1,12 @@
 .card {
-    border: 1px solid black;
+    border: 3px solid black;
     margin: 15px;
     width: 200px;
     height: 330px;
     cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 20px;
+    overflow:hidden;
 
 }
 
@@ -17,33 +19,32 @@
 .poster-image {
     max-width: 100%;
     height: auto;
+    margin:0;
 }
 
 .card-footer {
-    height:30px;
-    width: 100%
+    width: 100%;
 }
 
-.card-title {
-    margin: 1px;
+/* .card-title {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-}
+} */
 
 .info-container {
-    height: 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin:0;
 }
 
 .card-date {
     margin: 0px;
-    margin-left: 3px;
+    margin-left: 5px;
 }
 
 .card-rating {
     margin: 0px;
-    margin-right: 3px;
+    margin-right: 5px;
 }
