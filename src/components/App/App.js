@@ -1,8 +1,9 @@
 import './App.css';
-import movieData from '../../assets/movieData'
 import React, {Component} from "react"
 import Movies from '../Movies/Movies'
 import MovieDetails from '../MovieDetails/MovieDetails'
+import { fetchMovies, fetchMovie } from "../../apiCalls";
+import Header from '../Header/Header'
 
 class App extends Component {
   constructor() {
@@ -10,16 +11,29 @@ class App extends Component {
     this.state = {
       movies: [],
       movie: "",
+      error: "",
     }
   }
   componentDidMount() {
-    this.setState({ movies: movieData.movies })
+    fetchMovies()
+    .then((data)=> {
+      this.setState({movies: data.movies})
+    })
+    .catch((error) => {
+      console.log('fetch movies error', error)
+      this.setState({error: error})
+    })
   }
 
   selectMovie = (id) => {
-    let selectedMovie = this.state.movies.find((movie) => movie.id === id)
-    console.log(selectedMovie)
-    this.setState({movie: selectedMovie})
+    fetchMovie(id)
+    .then((data)=> {
+      this.setState({movie: data.movie})
+    })
+    .catch((error) => {
+      console.log('fetch movies error', error)
+      this.setState({error: error})
+    })
   }
 
   returnHome = () => {
@@ -29,6 +43,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Header />
         {
         this.state.movie ? (<MovieDetails movie={this.state.movie} returnHome={this.returnHome}/>) : ( <Movies movies={this.state.movies} selectMovie={this.selectMovie}/>)
         }
