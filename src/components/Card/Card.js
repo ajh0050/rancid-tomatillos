@@ -1,9 +1,10 @@
 import React from 'react'
 import './Card.css'
+import { Link } from 'react-router-dom'
 
-const Card = ({rating, id, releaseDate, image, selectMovie}) => {
+const Card = ({rating, id, releaseDate, image}) => {
     return (
-        <div className='card' onClick={()=> selectMovie(id)}>
+        <Link className='card' to={`/movies/${id}`}>
             <img src={image} alt="Movie Poster" className='poster-image'></img>
             <div className="card-footer">
                 <div className='info-container'>
@@ -11,7 +12,7 @@ const Card = ({rating, id, releaseDate, image, selectMovie}) => {
                     <p className='card-rating'>{parseFloat(rating.toFixed(2))}/10</p>
                 </div>
             </div>
-        </div>
+        </Link>
     )
 }
 

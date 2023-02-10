@@ -1,60 +1,34 @@
 import './App.css';
-import React, {Component} from "react"
+import React from "react"
 import Movies from '../Movies/Movies'
-import MovieDetails from '../MovieDetails/MovieDetails'
-import { fetchMovies, fetchMovie } from "../../apiCalls";
 import Header from '../Header/Header'
+import { Route, Switch } from 'react-router-dom';
+import Error from '../Error/Error'
+import MovieDetails from '../MovieDetails/MovieDetails'
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      movies: [],
-      movie: "",
-      error: "",
-    }
-  }
-  componentDidMount() {
-    fetchMovies()
-    .then((data)=> {
-      this.setState({movies: data.movies})
-    })
-    .catch((error) => {
-      console.log('fetch movies error', error)
-      this.setState({error: error})
-    })
-  }
-
-  selectMovie = (id) => {
-    fetchMovie(id)
-    .then((data)=> {
-      this.setState({movie: data.movie})
-    })
-    .catch((error) => {
-      console.log('fetch movies error', error)
-      this.setState({error: error})
-    })
-  }
-
-  returnHome = () => {
-    this.setState({movie:""})
-  }
-
-  render() {
-    if (!this.state.error) {
-      return (
-        <div className="App">
-          <Header />
-  
-          {this.state.movie ? (<MovieDetails movie={this.state.movie} returnHome={this.returnHome}/>) : ( <Movies movies={this.state.movies} selectMovie={this.selectMovie}/>)}
-        </div>
-      )
-    } else {
-      return (
-        <div>Sorry please come back again later</div>
-      )
-    }
-  }
+const App = () => {
+    return (
+      <main className='main'>
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={() => {
+              return (
+                <div>
+                  <Header />
+                  <Movies/>
+                </div>
+              )
+            }}
+          />
+          <Route path='/movies/:id'
+            render={
+              ({ match }) => <MovieDetails id={match.params.id} />}/>
+          <Route path="*" render={()=> <Error message="Page Not Found"/>} />
+        </Switch>
+      </main>
+    )
 }
 
 export default App;
