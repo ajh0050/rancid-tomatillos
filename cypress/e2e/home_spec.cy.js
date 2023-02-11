@@ -13,6 +13,7 @@ describe('Home page testing', () => {
     cy.intercept("GET",`https://rancid-tomatillos.herokuapp.com/api/v2/movies`, { fixture: 'movies.json' })
     cy.get('.movies-container').find('.card').should('have.length',3)
   })
+  
   it('All movie cards should display movie info and have a movie img', () => {
     cy.intercept("GET",`https://rancid-tomatillos.herokuapp.com/api/v2/movies`, { fixture: 'movies.json' })
     cy.get('.card').eq(0).contains("4/10")
