@@ -4,7 +4,7 @@ function fetchMovies() {
         if (response.ok) {
           return response.json();
         } else {
-          throw new Error(`${response.status} : ${response.statusText}`);
+          throw new Error(`There was an error`);
         }
       }
     );
@@ -17,7 +17,7 @@ function fetchMovie(id) {
       if (response.ok) {
         return response.json();
       } else {
-        throw new Error(`${response.status} : ${response.statusText}`);
+        throw new Error(`There was an error`);
       }
     });
   }

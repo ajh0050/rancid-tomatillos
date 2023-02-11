@@ -28,9 +28,9 @@ describe('Home page testing', () => {
     cy.get('.card').eq(2).find("img").should('have.attr','src').should('include','https://image.tmdb.org/t/p/original//g4yJTzMtOBUTAR2Qnmj8TYIcFVq.jpg')
   })
 
-  // it('When the response is a 500 level error there is an error message displayed', () => {
-  //   cy.intercept("GET",`https://rancid-tomatillos.herokuapp.com/api/v2/movies`, { status: 500 })
-  //   cy.get('h1').contains("Sorry")
-  // })
+  it('When the response is a 500 level error there is an error message displayed', () => {
+    cy.intercept("GET",`https://rancid-tomatillos.herokuapp.com/api/v2/movies`, { statusCode: 500 })
+    cy.get('h1').contains("There was an error")
+  })
 
 })
