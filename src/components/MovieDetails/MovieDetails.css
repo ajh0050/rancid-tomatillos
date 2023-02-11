@@ -2,40 +2,42 @@
     display:flex;
     flex-direction: column;
     width:100%;
-    height: 100%;
     background-color: gray;
-    /* box-sizing: border-box; */
 }
 
 .main-info {
     display:flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .image-section {
-    width: 50%;
+    width: 75%;
     display:flex;
     flex-direction: column;
     align-items: center;
 }
 
 .hero-image {
-    /* box-sizing: border-box; */
-    width:90%;
+    width:100%;
     height: auto;
-    margin:20px;
     margin-bottom: 5px;
 }
 
 .tagline {
     margin:0;
     margin-left: 20px;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
 }
 
 .main-details {
+    box-sizing: border-box;
     display:flex;
     flex-direction: column;
-    width: 50%;
+    width: 75%;
+    /* margin-right: 12.5%;
+    margin-left: 12.5%; */
+    margin-top: 0;
 }
 
 .title-section {
@@ -56,16 +58,15 @@
     padding:5px;
     height: 40px;
     margin: 5px;
+    position: fixed;
+    top:0;
+    right:0
 }
 
 .overview {
     font-size: 1.5rem;
-    margin-right: 15%;
-    margin-top: 0;
-    line-height: 1.8;
+    width:100%;
 }
 
-.extra-details {
-    margin-left: 20px;
-}
+
 
