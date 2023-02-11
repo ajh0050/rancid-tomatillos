@@ -9,7 +9,8 @@ export default class Movies extends React.Component {
     super()
 
     this.state = {
-      movies: []
+      movies: [],
+      error: "",
     }
   }
 
@@ -18,17 +19,17 @@ export default class Movies extends React.Component {
     .then((data) => {
       this.setState({ movies: data.movies })
     })
-    .catch((error) => {
-      console.log('fetch movies error', error)
-      this.setState({ error: error })
+    .catch((err) => {
+      console.log('fetch movies error', err.toString())
+      console.log("type", typeof err)
+      this.setState({ error: err })
     })
   }
 
   render() {
     return (
       <div className='movies-container'>
-        {this.state.error && <Error message={this.state.error} />}
-        {this.state.movies.map(movie => {
+        {this.state.error ? <Error message={this.state.error} /> : this.state.movies?.map(movie => {
           return (
             <Card
               title={movie.title}
