@@ -9,10 +9,10 @@ This is an app for users to view and select movies to get more information about
 3. `cd` into the project
 4. On your terminal, `npm install`
 5. On your terminal, `npm start`
-6. Navigate to http://localhost:8080/
+6. Navigate to http://localhost:3000/
 
 ### Preview of the App
-(![Screen Shot 2023-02-13 at 5 40 34 PM](https://user-images.githubusercontent.com/36003417/218590832-06719271-0779-41dd-830a-a52aea84270e.png))
+![Screen Shot 2023-02-13 at 5 40 34 PM](https://user-images.githubusercontent.com/36003417/218590832-06719271-0779-41dd-830a-a52aea84270e.png)
 
 ### Context
 This was my second solo React project at Turing School of Software and Design. 
